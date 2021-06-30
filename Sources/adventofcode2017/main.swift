@@ -6,6 +6,7 @@
  /_/    \_\__,_| \_/ \___|_| |_|\__|  \___/|_|    \_____\___/ \__,_|\___| |____|\___/ |_|/_/    
  in Swift 5.4
 */
+
 import Foundation
 
 func usage() {
@@ -25,7 +26,6 @@ func cliargs(maxday:Int) -> (Int, String) {
 			continue
 		}
 		clArgCount+=1;
-		print("cliargs ", clArgCount, argument)
 		if clArgCount == 1 {
 			clDay = Int(argument) ?? -1
 		}
@@ -101,16 +101,13 @@ func interactive(maxday:Int, maxfiles:Int) -> (Int, String) {
 	}
 }
 
-let maxday = 2
-let maxfiles = 5;
-
+let maxday = 3
+let maxfiles = 9
+var day = -1
+var path = ""
 // i got all fancy with an interactive terminal mode, but for testing simplicity i'm adding a more direct mode
 // launched with command line arguments
-var day = -1;
-var path = "";
-
 (day, path) = cliargs(maxday:maxday);
-print("Got here day \(day) path \(path)")
 if(day == -1) {
 	(day, path) = interactive(maxday:maxday, maxfiles:maxfiles);
 }
@@ -124,6 +121,8 @@ switch day {
 		Day01.run(inputPath: path)
 	case 2:
 		Day02.run(inputPath: path)
+	case 3:
+		Day03.run(inputPath: path)
 	default:
 		print("Something went wrong!")
 		exit(0)
