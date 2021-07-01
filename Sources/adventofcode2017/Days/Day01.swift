@@ -2,7 +2,6 @@ import Foundation;
 
 class Day01: PuzzleDay {
 	static func run(inputPath:String) {
-		print("Running Day 1 with input file \(inputPath)")
 		let lines = readLines(inputPath:inputPath)
 		if(lines.count == 0) {
 			return

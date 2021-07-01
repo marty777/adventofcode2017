@@ -18,7 +18,6 @@ class Day03: PuzzleDay {
 	}
 	
 	static func run(inputPath:String) {
-		print("Running Day 2 with input file \(inputPath)")
 		let lines = readLines(inputPath:inputPath)
 		if(lines.count == 0) {
 			return
@@ -67,7 +66,6 @@ class Day03: PuzzleDay {
 		}
 		print("Part 1:", part1)
 		
-		
 		var map:[Coord:Int] = [Coord(x:0,y:0):1]
 		var coord = Coord(x:0,y:0)
 		layerDim = 1
@@ -103,7 +101,6 @@ class Day03: PuzzleDay {
 				break
 			}
 		}
-		
 		print("Part 2:", part2)
 	}
 }

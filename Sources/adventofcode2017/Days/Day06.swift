@@ -65,7 +65,6 @@ class Day06: PuzzleDay {
 	
 	
 	static func run(inputPath:String) {
-		print("Running Day 2 with input file \(inputPath)")
 		let lines = readLines(inputPath:inputPath)
 		if(lines.count == 0) {
 			return

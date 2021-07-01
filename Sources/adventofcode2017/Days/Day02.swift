@@ -2,7 +2,6 @@ import Foundation;
 
 class Day02: PuzzleDay {
 	static func run(inputPath:String) {
-		print("Running Day 2 with input file \(inputPath)")
 		let lines = readLines(inputPath:inputPath)
 		if(lines.count == 0) {
 			return
@@ -52,7 +51,6 @@ class Day02: PuzzleDay {
 			part1 += lineMax - lineMin
 			part2 += lineDividend/lineDivisor;
 		}
-		
 		
 		print("Part 1:", part1)
 		print("Part 2:", part2)

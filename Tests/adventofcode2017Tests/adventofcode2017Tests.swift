@@ -1,8 +1,6 @@
 import XCTest
 import Foundation
 
-
-
 class adventofcode2017Tests: XCTestCase {
 	
 	func runInput(day:Int,inputPath:String) -> [String] {
@@ -74,6 +72,13 @@ class adventofcode2017Tests: XCTestCase {
 		
 		XCTAssertEqual(lines[lines.count - 4], "Part 1: 5")
 		XCTAssertEqual(lines[lines.count - 3], "Part 2: 4")
+	}
+	
+	func testDay07() throws {
+		let lines = runInput(day:7, inputPath:"./Tests/TestData/Day07/sample.txt")
+		
+		XCTAssertEqual(lines[lines.count - 4], "Part 1: tknk")
+		XCTAssertEqual(lines[lines.count - 3], "Part 2: 60")
 	}
 	
 	/// Returns path to the built products directory.
