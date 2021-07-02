@@ -36,7 +36,7 @@ class Day07: PuzzleDay {
 			var name:String?
 			var weight:Int = 0
 			name = scanner.scanUpToString(" (")
-			scanner.scanUpToCharacters(from:CharacterSet.decimalDigits)
+			_ = scanner.scanUpToCharacters(from:CharacterSet.decimalDigits)
 			scanner.scanInt(&weight)
 			var node = Node(name:name!, weight:weight, index:index, childNames:[])
 			if line.index(of:"->") != nil {
@@ -77,7 +77,6 @@ class Day07: PuzzleDay {
 		var part2 = 0
 		var neighborWeight = 0
 		while true {
-			var balanced = false
 			var weightNode:[Int:String] = [:]
 			var weightCount:[Int:Int] = [:]
 			for c in nodes[index].childNames {
