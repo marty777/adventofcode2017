@@ -2,7 +2,10 @@ import Foundation;
 
 class Day09: PuzzleDay {
 	
-	static func traverse(line:String) -> (Int,Int) {
+	static func traverse(input:String) -> (Int,Int) {
+		// much faster to do character access through
+		// a character array than using string slices
+		let line = Array(input)
 		var index = 1
 		var level = 1
 		let end = line.count - 1
@@ -41,7 +44,7 @@ class Day09: PuzzleDay {
 			return
 		}
 		let line = lines[0]
-		let (part1, part2) = traverse(line:line)
+		let (part1, part2) = traverse(input:line)
 		
 		print("Part 1:", part1)
 		print("Part 2:", part2)

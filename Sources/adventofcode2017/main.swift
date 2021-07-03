@@ -98,7 +98,7 @@ func interactive(maxday:Int, maxfiles:Int) -> (Int, String) {
 	}
 }
 
-let maxday = 9
+let maxday = 10
 let maxfiles = 9
 var day = -1
 var path = ""
@@ -112,9 +112,8 @@ if(day < 1 || day > maxday || !FileManager.default.fileExists(atPath:path)) {
 	usage()
 	exit(0)
 }
-let resetCode = ["\u{001B}[0m", ""]
-let redCode = ["\u{001B}[31m", "\u{001B}[0m"]
-print("Running Day \(day) with input file \(path)") //+ resetCode[0] + redCode[0])
+let yellowCode = ["\u{001B}[33m", "\u{001B}[0m"]
+print("Running Day \(day) with input file \(path)")
 let startTime = DispatchTime.now()
 switch day {
 	case 1:
@@ -135,6 +134,8 @@ switch day {
 		Day08.run(inputPath: path)
 	case 9:
 		Day09.run(inputPath: path)
+	case 10:
+		Day10.run(inputPath: path)
 	default:
 		print("Something went wrong!")
 		exit(0)
@@ -142,5 +143,4 @@ switch day {
 let endTime = DispatchTime.now()
 let ns = endTime.uptimeNanoseconds - startTime.uptimeNanoseconds
 let elapsed = Int(Double(ns) / 1000000)
-//print(resetCode[0] + "Elapsed time: \(elapsed) ms");
-print("Elapsed time: \(elapsed) ms");
+print(yellowCode[0] + "Elapsed time: \(elapsed) ms" + yellowCode[1]);
