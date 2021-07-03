@@ -8,7 +8,6 @@ class Day08: PuzzleDay {
 			if line.count == 0 {
 				continue
 			}
-			print(line)
 			let components = line.components(separatedBy: " ")
 			let reg = components[0]
 			let op = components[1]
@@ -16,7 +15,7 @@ class Day08: PuzzleDay {
 			let reg_c = components[4]
 			let cond = components[5]
 			let amt_c = Int(components[6])!
-			print(reg, op, amt, reg_c, cond, amt_c)
+			
 			
 			if registers[reg] == nil {
 				registers[reg] = 0

@@ -42,12 +42,15 @@ func cliargs(maxday:Int) -> (Int, String) {
 
 func interactive(maxday:Int, maxfiles:Int) -> (Int, String) {
 	let dataDir = "./Data/"
-	print("-----------------------------------------------------------------------------")
-	print("    _      _             _          __    ___         _       ___ __  _ ____ ")
+	let resetCode = ["\u{001B}[0m", ""]
+	let cyanCode = ["\u{001B}[36m", "\u{001B}[0m"]
+	let yellowCode = ["\u{001B}[33m", "\u{001B}[0m"]
+	print(resetCode[0] + cyanCode[0] + "-----------------------------------------------------------------------------" + resetCode[0])
+	print(yellowCode[0] + "    _      _             _          __    ___         _       ___ __  _ ____ ")
 	print("   /_\\  __| |_ _____ _ _| |_   ___ / _|  / __|___  __| |___  |_  )  \\/ |__  |")
 	print("  / _ \\/ _` \\ V / -_) ' \\  _| / _ \\  _| | (__/ _ \\/ _` / -_)  / / () | | / /") 
-	print(" /_/ \\_\\__,_|\\_/\\___|_||_\\__| \\___/_|    \\___\\___/\\__,_\\___| /___\\__/|_|/_/ ")
-	print("-----------------------------------------------------------------------------")
+	print(" /_/ \\_\\__,_|\\_/\\___|_||_\\__| \\___/_|    \\___\\___/\\__,_\\___| /___\\__/|_|/_/ " + resetCode[0])
+	print(cyanCode[0] + "-----------------------------------------------------------------------------" + resetCode[0])
 	// get day to run from stdin
 	var day:Int? = nil
 	while(day == nil) {
@@ -59,7 +62,7 @@ func interactive(maxday:Int, maxfiles:Int) -> (Int, String) {
 	}
 	// locate data dir and display input files to run
 	let fileManager = FileManager.default
-	let dayDataDir = dataDir + "Day" + (day! < 9 ? "0" : "") + String(day!)
+	let dayDataDir = dataDir + "Day" + (day! < 10 ? "0" : "") + String(day!)
 	do {
 		let dirItems = try fileManager.contentsOfDirectory(atPath:dayDataDir)
 		if(dirItems.count == 0) {
@@ -95,7 +98,7 @@ func interactive(maxday:Int, maxfiles:Int) -> (Int, String) {
 	}
 }
 
-let maxday = 8
+let maxday = 9
 let maxfiles = 9
 var day = -1
 var path = ""
@@ -109,7 +112,9 @@ if(day < 1 || day > maxday || !FileManager.default.fileExists(atPath:path)) {
 	usage()
 	exit(0)
 }
-print("Running Day \(day) with input file \(path)")
+let resetCode = ["\u{001B}[0m", ""]
+let redCode = ["\u{001B}[31m", "\u{001B}[0m"]
+print("Running Day \(day) with input file \(path)") //+ resetCode[0] + redCode[0])
 let startTime = DispatchTime.now()
 switch day {
 	case 1:
@@ -128,11 +133,14 @@ switch day {
 		Day07.run(inputPath: path)
 	case 8:
 		Day08.run(inputPath: path)
+	case 9:
+		Day09.run(inputPath: path)
 	default:
 		print("Something went wrong!")
 		exit(0)
 }
 let endTime = DispatchTime.now()
 let ns = endTime.uptimeNanoseconds - startTime.uptimeNanoseconds
-let elapsed = Double(ns) / 1000000
+let elapsed = Int(Double(ns) / 1000000)
+//print(resetCode[0] + "Elapsed time: \(elapsed) ms");
 print("Elapsed time: \(elapsed) ms");
