@@ -102,6 +102,21 @@ class adventofcode2017Tests: XCTestCase {
 		XCTAssertEqual(lines[lines.count - 3], "Part 2: 4A19451B02FB05416D73AEA0EC8C00C0")
 	}
 	
+	func testDay11() throws {
+		let lines1 = runInput(day:11, inputPath:"./Tests/TestData/Day11/sample1.txt")
+		XCTAssertEqual(lines1[lines1.count - 4], "Part 1: 3")
+		
+		let lines2 = runInput(day:11, inputPath:"./Tests/TestData/Day11/sample2.txt")
+		XCTAssertEqual(lines2[lines2.count - 3], "Part 2: 2")
+	}
+	
+	func testDay12() throws {
+		let lines = runInput(day:12, inputPath:"./Tests/TestData/Day12/sample.txt")
+		
+		XCTAssertEqual(lines[lines.count - 4], "Part 1: 6")
+		XCTAssertEqual(lines[lines.count - 3], "Part 2: 2")
+	}
+	
 	/// Returns path to the built products directory.
 	var productsDirectory: URL {
 	  #if os(macOS)

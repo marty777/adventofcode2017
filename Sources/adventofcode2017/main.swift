@@ -98,7 +98,7 @@ func interactive(maxday:Int, maxfiles:Int) -> (Int, String) {
 	}
 }
 
-let maxday = 10
+let maxday = 12
 let maxfiles = 9
 var day = -1
 var path = ""
@@ -136,6 +136,10 @@ switch day {
 		Day09.run(inputPath: path)
 	case 10:
 		Day10.run(inputPath: path)
+	case 11:
+		Day11.run(inputPath: path)
+	case 12:
+		Day12.run(inputPath: path)
 	default:
 		print("Something went wrong!")
 		exit(0)
