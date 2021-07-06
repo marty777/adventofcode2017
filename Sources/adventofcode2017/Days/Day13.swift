@@ -59,7 +59,6 @@ class Day13: PuzzleDay {
 		for i in 0..<lcm {
 			if !sieve[i] {
 				return i
-				
 			}
 		}
 		return -1

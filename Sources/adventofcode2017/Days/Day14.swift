@@ -31,10 +31,8 @@ class Day14: PuzzleDay {
 			for j in 0..<16 {
 				accumulator ^= nodes[16*i + j]
 			}
-			//print("\(i) ", String(format:"%02x", accumulator))
 			for j in 0...7 {
 				let test = ((accumulator >> (7-j)) & 0x1)
-				//print("\t\(j) ", test)
 				ret.append(test == 1)
 			}
 		}
@@ -49,11 +47,7 @@ class Day14: PuzzleDay {
 			let ascii = Int(c.asciiValue!)
 			lengths.append(ascii)
 		}
-		lengths.append(17)
-		lengths.append(31)
-		lengths.append(73)
-		lengths.append(47)
-		lengths.append(23)
+		lengths.append(contentsOf:[17,31,73,47,23])
 		
 		var nodes:[Int] = []
 		for i in 0..<numNodes {
