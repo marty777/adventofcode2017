@@ -188,7 +188,20 @@ class adventofcode2017Tests: XCTestCase {
 	
 	// No test for day 23. Not much point without the puzzle input which I'm not including.
 	
-	/// Returns path to the built products directory.
+	func testDay24() throws {
+		let lines = runInput(day:24, inputPath:"./Tests/TestData/Day24/sample.txt")
+		
+		XCTAssertEqual(lines[lines.count - 4], "Part 1: 31")
+		XCTAssertEqual(lines[lines.count - 3], "Part 2: 19")
+	}
+	
+	func testDay25() throws {
+		let lines = runInput(day:25, inputPath:"./Tests/TestData/Day25/sample.txt")
+		
+		XCTAssertEqual(lines[lines.count - 3], "Part 1: 3")
+	}
+	
+	// Returns path to the built products directory.
 	var productsDirectory: URL {
 	  #if os(macOS)
 		for bundle in Bundle.allBundles where bundle.bundlePath.hasSuffix(".xctest") {

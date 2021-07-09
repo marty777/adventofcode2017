@@ -74,9 +74,9 @@ class Day23: PuzzleDay {
 	}
 	
 	// Ah heck, it's counting non-primes in a range of integers. Weird.
-	// Anyway, extract the useful values from the instructions. This 
-	// implementation is dependant on the layout of my input file and 
-	// may not be guaranteed to work for others.
+	// Anyway, extract the useful values from the instructions and determine
+	// the solution more succinctly. This implementation is dependent on the 
+	// layout of my input file and may not be guaranteed to work for others.
 	static func part2(lines:[String]) -> Int {
 		var instructions:[String] = []
 		for l in lines {
@@ -84,7 +84,7 @@ class Day23: PuzzleDay {
 				instructions.append(l)
 			}
 		}
-		// determine the values
+		
 		var b = 0
 		var c = 0
 		b = Int(instructions[0].components(separatedBy:" ")[2])!
@@ -104,7 +104,6 @@ class Day23: PuzzleDay {
 			}
 			i += increment
 		}
-		
 		return h
 	}
 	
