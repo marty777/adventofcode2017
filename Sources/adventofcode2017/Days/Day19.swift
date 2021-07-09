@@ -3,7 +3,7 @@ import Foundation;
 class Day19: PuzzleDay {
 	
 	
-	static func part1(_ grid:[[Character]]) -> (String, Int) {
+	static func traverse(_ grid:[[Character]]) -> (String, Int) {
 		let height = grid.count
 		let width = grid[0].count
 		var curr_pos:Coord = Coord(x:0,y:0)
@@ -14,7 +14,6 @@ class Day19: PuzzleDay {
 			}
 			curr_pos.x += 1
 		}
-		print("start ", curr_pos.x, curr_pos.y)
 		var collection:[Character] = []
 		var steps = 0
 		while true {
@@ -92,7 +91,7 @@ class Day19: PuzzleDay {
 			grid.append(row)
 		}
 		
-		let (part1, part2) = self.part1(grid)
+		let (part1, part2) = traverse(grid)
 		print("Part 1:", part1)
 		print("Part 2:", part2)
 	}

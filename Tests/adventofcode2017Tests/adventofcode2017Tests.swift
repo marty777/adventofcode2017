@@ -160,6 +160,33 @@ class adventofcode2017Tests: XCTestCase {
 		XCTAssertEqual(lines2[lines2.count - 3], "Part 2: 3")
 	}
 	
+	func testDay19() throws {
+		let lines = runInput(day:19, inputPath:"./Tests/TestData/Day19/sample.txt")
+		
+		XCTAssertEqual(lines[lines.count - 4], "Part 1: ABCDEF")
+		XCTAssertEqual(lines[lines.count - 3], "Part 2: 38")
+	}
+	
+	func testDay20() throws {
+		let lines1 = runInput(day:20, inputPath:"./Tests/TestData/Day20/sample1.txt")
+		XCTAssertEqual(lines1[lines1.count - 4], "Part 1: 0")
+		
+		let lines2 = runInput(day:20, inputPath:"./Tests/TestData/Day20/sample2.txt")
+		XCTAssertEqual(lines2[lines2.count - 3], "Part 2: 1")
+	}
+	
+	// I don't have a sample input which will easly produce a useful test for day 21
+	// and I'm not including my input file or taking the time to build some replacement 
+	// rules, so the test is omitted.
+	
+	func testDay22() throws {
+		let lines = runInput(day:22, inputPath:"./Tests/TestData/Day22/sample.txt")
+		
+		XCTAssertEqual(lines[lines.count - 4], "Part 1: 5587")
+		XCTAssertEqual(lines[lines.count - 3], "Part 2: 2511944")
+	}
+	
+	// No test for day 23. Not much point without the puzzle input which I'm not including.
 	
 	/// Returns path to the built products directory.
 	var productsDirectory: URL {
