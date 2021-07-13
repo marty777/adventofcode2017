@@ -7,9 +7,6 @@ import Foundation
 func usage() {
 	print("Usage:")
 	print("swift run adventofcode2017 [DAY] [INPUT FILE PATH]")
-	for argument in CommandLine.arguments {
-		print(argument)
-	}
 }
 
 func cliargs(maxday:Int) -> (Int, String) {
@@ -29,7 +26,13 @@ func cliargs(maxday:Int) -> (Int, String) {
 		}
 	}
 	if clArgCount > 1 {
-		if clDay < 1 || clDay > maxday || !FileManager.default.fileExists(atPath:clPath) {
+		if clDay < 1 || clDay > maxday {
+			print("Please specify a day number between 1 and \(maxday) (you entered \(clDay))")
+			usage()
+			exit(0)
+		}
+		if !FileManager.default.fileExists(atPath:clPath) {
+			print("The file at path \(clPath) could not be found")
 			usage()
 			exit(0)
 		}
